@@ -1,0 +1,36 @@
+body{
+    background-color: dimgray;
+    font-family: cursive;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.container{
+    max-width: 400px;
+    padding: 10px;
+    margin:auto;
+    margin-top: 100px;
+    background-color: #333;
+    color: azure;
+    border-radius: 5px;
+    box-shadow: 0 0 5px;
+}
+form input{
+    border-radius: 5px;
+}
+form label{
+    font-size: 20px;
+    margin-bottom: auto;
+}
+#bt{
+    color: white;
+    background-color:deepskyblue;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+#branch{
+    border-radius: 5px;
+}
