@@ -8,13 +8,15 @@ const app=express();
 app.use(express.static(__dirname))
 app.use(express.urlencoded({extended:true}))
 
-mongoose.connect('mongodb://120.0.0.1:27017/students')
+mongoose.connect('mongodb://127.0.0.1:27017/students')
 const db = mongoose.connection
 db.once('open',()=>{
     console.log("mongodb connected succesfully")
 })
 
-const user = mongoose.model("data",users)
+// const user = mongoose.model("data",users)
+const User = mongoose.model("data", userSchema);
+
 
 
 const userschema = new mongoose.Schema({
@@ -30,12 +32,16 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/post',async (req,res)=>{
-    const user = new users({
+    const{reg_no,name,email,branch} = req.body
+    const user = new Users({
         reg_no,
         name,
         email,
         branch,
     })
+    await user.save()
+    console.log(users)
+    res.send("Form Submission Successfully")
 })
 
 app.listen(port,()=>{
