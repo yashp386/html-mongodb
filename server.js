@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
 
-const port=1234;
+const port=1212;
 
 const app=express();
 app.use(express.static(__dirname))
@@ -15,16 +15,15 @@ db.once('open',()=>{
 })
 
 // const user = mongoose.model("data",users)
-const User = mongoose.model("data", userSchema);
 
-
-
-const userschema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name:String,
     reg_no:String,
     email:String,
-    branch:string,
+    branch:String,
 })
+
+const User = mongoose.model("data", userSchema);
 
 app.get('/',(req,res)=>{
     // res.send('hi to server')  check to start server

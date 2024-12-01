@@ -8,17 +8,17 @@ const app = express();
 app.use(express.static(__dirname));
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
+// Connection url to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/students', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected successfully"))
     .catch((err) => console.error("MongoDB connection error:", err));
 
-// Define Mongoose Schema and Model
+// Define Mongoose Schema and Model here according to database
 const userSchema = new mongoose.Schema({
     name: String,
     reg_no: String,
     email: String,
-    branch: String, // Fix: Correct case for `String`
+    branch: String, 
 });
 
 const User = mongoose.model("data", userSchema); // Fix: Pass `userSchema` instead of undefined `users`
