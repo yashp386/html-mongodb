@@ -13,6 +13,15 @@ db.once('open',()=>{
     console.log("mongodb connected succesfully")
 })
 
+new mongoose.Schema({
+    name:String,
+    reg_no:String,
+    email:String,
+    branch:string,
+})
+
+const 
+
 app.get('/',(req,res)=>{
     // res.send('hi to server')  check to start server
     res.sendFile(path.join(__dirname,'form.html'))
